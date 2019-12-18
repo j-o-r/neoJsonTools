@@ -1,0 +1,16 @@
+{
+  "name": "jsonTools",
+  "version": "1.0.0",
+  "description": "A bunch of json functions",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duino/neoJsonTools.git"
+  },
+  "dependencies": {
+    "@types/node": "^12.12.21",
+    "generate-schema": "^2.6.0",
+    "json-pointer": "^0.6.0"
+  }
+}
