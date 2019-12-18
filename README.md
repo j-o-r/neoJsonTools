@@ -2,7 +2,7 @@
 
 neovim plugin based on the neovim node-client.
 
-* Create a JSON schema from JSON example form jsconfig.json
+* Create a JSON schema from JSON (example from :e jsconfig.json)
 ```
 :json2Schema
 ```
@@ -43,7 +43,7 @@ neovim plugin based on the neovim node-client.
 ```
 :jsonFormat
 ```
-* json to typeDef tserver / typescript example from jsconfig.json
+* json to typeDef tserver / typescript (example from :e jsconfig.json)
 ```
 :json2Typedef
 ```
