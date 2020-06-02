@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/duino/neoJsonTools.git"
+    "url": "https://github.com/j-o-r/neoJsonTools.git"
   },
   "dependencies": {
     "@types/node": "^12.12.21",
