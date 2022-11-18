@@ -9,8 +9,7 @@
     "url": "https://github.com/j-o-r/neoJsonTools.git"
   },
   "dependencies": {
-    "@types/node": "^12.12.21",
     "generate-schema": "^2.6.0",
-    "json-pointer": "^0.6.0"
+    "json-pointer": "^0.6.2"
   }
 }
