@@ -43,16 +43,16 @@ neovim plugin based on the neovim node-client.
 ```
 :JsonFormat
 ```
-* json to typeDef tserver / typescript (example from :e jsconfig.json)
+* json to JSDOC
 ```
-:Json2Typedef
+:Json2JSDoc
 ```
 ```
 /**
   * Represents a Jsconfig object
-  * @typedef {Object} JsconfigObject
+  * @typedef {object} JsconfigObject
   *
-  * @property {Object} [compilerOptions] -
+  * @property {object} [compilerOptions] -
   * @property {string} [compilerOptions.target] -
   * @property {string} [compilerOptions.module] -
   * @property {boolean} [compilerOptions.checkJs] -
@@ -76,9 +76,18 @@ If node-client is not installed type:
 ```
 npm install -g neovim
 ```
-
+https://neovim.io/doc/user/remote_plugin.html
 
 Init new plugin and restart neovim
+
+Place the plugin in the folder:
+
+```
+~/.config/nvim/rplugin/node
+npm install
+``
+and run (within nvim)
+
 ```
 :UpdateRemotePlugins
 ```

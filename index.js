@@ -2,6 +2,7 @@
  * --------------------------------------------------------
  *  https://github.com/neovim/node-client
  *  :UpdateRemotePlugins
+ *  !AND RESTART!
  *  -- DEBUGGING --
  *  export NVIM_NODE_LOG_LEVEL=debug
  *  export NVIM_NODE_LOG_FILE=/home/jd/neo_dev_log/nvim.log
@@ -37,12 +38,12 @@ const writeOut = async (plugin, str) => {
     console.error(err);
   }
 };
-
-module.exports = plugin => {
-  plugin.setOptions({ dev: true, alwaysInit: true });
-
-  plugin.registerCommand('JsonFormat', async function (){
-    let buffer = plugin.nvim.buffer;
+module.exports = (plugin) => {
+  // plugin.setOptions({ dev: true, alwaysInit: true });
+  plugin.setOptions({ dev: false, alwaysInit: true });
+  // JsonFormat
+  plugin.registerCommand('JsonFormat', async () => {
+    const buffer = plugin.nvim.buffer;
     buffer.lines.then((lines) => {
       if (lines.length === 0) {
         return;
@@ -61,7 +62,7 @@ module.exports = plugin => {
       });
     });
   }, { sync: false, nargs: '*', range: ''});
-
+  // json2Schema
   plugin.registerCommand('Json2Schema', async () => {
     let buffer = plugin.nvim.buffer;
     buffer.lines.then((lines) => {
@@ -92,24 +93,24 @@ module.exports = plugin => {
       });
     });
   }, { sync: false });
-
-  plugin.registerCommand('Json2Typedef', async () => {
-    let buffer = plugin.nvim.buffer;
+  // Json2JSDoc
+  plugin.registerCommand('Json2JSDoc', async () => {
+    const buffer = plugin.nvim.buffer;
     buffer.lines.then((lines) => {
       if (lines.length === 0) {
         return;
       }
-      let lines_length = lines.length;
-      let s = linesToString(lines);
-      let o = jsonToJs(s).then((o) => {
+      const lines_length = lines.length;
+      const s = linesToString(lines);
+      jsonToJs(s).then((o) => {
         plugin.nvim.call('input', 'object name? ').then((xx) => {
           if (xx === '') {
             xx = 'JsonSchema';
           }
           writeOut(plugin, '');
-          let a = schema.toJsDoc(xx, o);
+          const a = schema.toJsDoc(xx, o);
           if (a) {
-            let lines = stringToLines(a);
+            const lines = stringToLines(a);
             if (lines.length > 0) {
               buffer.remove(0, lines_length, true);
               buffer.insert(lines, 0);
